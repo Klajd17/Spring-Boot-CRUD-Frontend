@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <h2>Cloud Vendors</h2>
+  <button class="btn btn-primary btn-sm mb-2" (click)="getCloudList()">Get Cloud List</button>
+  <button class="btn btn-success btn-sm mb-2 ml-2" (click)="openModal()">Add Cloud Vendor</button>
+
+  <div class="row">
+    <div class="col-md-6" *ngFor="let cloudVendor of cloudVendors">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h3>{{ cloudVendor.vendorAddress }}</h3>
+          <div class="btn-group">
+            <button class="btn btn-primary btn-sm" (click)="showCloudDetails(cloudVendor)">Show Details</button>
+            <button class="btn btn-warning btn-sm" (click)="openModal(cloudVendor)">Edit Cloud Vendor</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteCloud(cloudVendor.vendorId)">Delete Cloud Vendor</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add a div to display the clicked cloud vendor's details -->
+  <div *ngIf="isSelected" class="mt-4">
+    <app-cloud-details [selectedItem]="selectedCloudVendor"></app-cloud-details>
+  </div>
+</div>
+

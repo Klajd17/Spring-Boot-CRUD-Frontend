@@ -1,0 +1,30 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title" *ngIf="!cloudVendor">Add Cloud Vendor</h4>
+  <h4 class="modal-title" id="modal-basic-title1" *ngIf="cloudVendor">Update Cloud Vendor</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="closeModal(false)"></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="cloudForm">
+    <div class="mb-3">
+      <label for="vendorId">ID</label>
+      <input id="vendorId" class="form-control" name="vendorId" formControlName="vendorId" value="">
+    </div>
+    <div class="mb-3">
+      <label for="vendorName">Vendor Name</label>
+      <input id="vendorName" class="form-control" name="vendorName" formControlName="vendorName" value="">
+    </div>
+    <div class="mb-3">
+      <label for="vendorAddress">Vendor Address</label>
+      <input id="vendorAddress" class="form-control" name="vendorAddress" formControlName="vendorAddress" value="">
+    </div><div class="mb-3">
+      <label for="vendorPhoneNumber">Vendor Phone Number</label>
+      <input id="vendorPhoneNumber" class="form-control" name="vendorPhoneNumber" formControlName="vendorPhoneNumber" value="">
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="closeModal(false)">Cancel</button>
+      <button type="submit" class="btn btn-outline-primary" (click)="addCloud()" *ngIf="!cloudVendor">ADD</button>
+      <button type="submit" class="btn btn-outline-primary" (click)="editUser()" *ngIf="cloudVendor">Update</button>
+    </div>
+  </form>
+</div>
+
