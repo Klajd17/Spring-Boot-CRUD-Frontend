@@ -70,14 +70,11 @@ export class CloudListComponent implements OnInit {
                 }
             }
         );
-
-        // modalRef.componentInstance.cloudVendors = this.cloudVendors;
     }
 
     deleteCloud(id: string) {
         this.cloudService.deleteCloud(id).subscribe({
             next: (res) => {
-                // this.cloudVendor = res;
                 alert('Deleted Successfully!!');
                 this.getCloudList();
             },
