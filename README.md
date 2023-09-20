@@ -1,4 +1,4 @@
-# String Boot CRUD Frontend
+# Spring Boot CRUD Frontend
 
 ![img.png](img.png)
 ![img_1.png](img_1.png)
