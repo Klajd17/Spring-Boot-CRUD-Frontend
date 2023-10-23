@@ -2,10 +2,12 @@
   <h2>Cloud Vendors</h2>
   <button class="btn btn-primary btn-sm mb-2" (click)="getCloudList()">Get Cloud List</button>
   <button class="btn btn-success btn-sm mb-2 ml-2" (click)="openModal()">Add Cloud Vendor</button>
-
+  <div class="search-hero">
+    <input class="form-control" type="text"  [(ngModel)]="searchText" name="search" autocomplete="off" placeholder="Search">
+  </div>
   <div class="row">
-    <div class="col-md-6" *ngFor="let cloudVendor of cloudVendors">
-      <div class="card mb-3">
+    <div class="col-md-6" *ngFor="let cloudVendor of cloudVendors | appFilter: searchText:'vendorAddress'">
+    <div class="card mb-3">
         <div class="card-body">
           <h3>{{ cloudVendor.vendorAddress }}</h3>
           <div class="btn-group">

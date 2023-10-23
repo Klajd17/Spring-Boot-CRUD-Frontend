@@ -8,7 +8,10 @@ import {AddCloudVendorComponent} from './components/add-cloud-vendor-dialog/add-
 import {CloudDetailsComponent} from './components/cloud-details/cloud-details.component';
 import {CloudListComponent} from './components/cloud-list/cloud-list.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {ExampleInterceptorInterceptor} from "./example-interceptor.interceptor";
+import { MenuComponent } from './shared/cons/navigation/menu/menu.component';
+import { FilterPipe } from './shared/pipes/filter.pipe';
 
 
 @NgModule({
@@ -16,7 +19,9 @@ import {HttpClientModule} from "@angular/common/http";
     AppComponent,
     AddCloudVendorComponent,
     CloudDetailsComponent,
-    CloudListComponent
+    CloudListComponent,
+    MenuComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -26,7 +31,11 @@ import {HttpClientModule} from "@angular/common/http";
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: ExampleInterceptorInterceptor, multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

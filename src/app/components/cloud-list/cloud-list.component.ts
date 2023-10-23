@@ -14,6 +14,8 @@ export class CloudListComponent implements OnInit {
     cloudVendors: CloudModels[] = [];
     selectedCloudVendor: CloudModels = new CloudModels();
     isSelected: Boolean = false;
+    cloudName: CloudModels = new CloudModels();
+    searchText: string = '';
 
     constructor(private cloudService: CloudService, private modalService: NgbModal) {
     }
